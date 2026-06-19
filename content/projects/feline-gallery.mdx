@@ -1,0 +1,60 @@
+## The Problem
+
+A lot of student MVC projects end up with controllers that do everything —
+querying the database, applying business rules, and shaping the response all
+in one method. I wanted to build something that actually respected the
+separation of concerns MVC is supposed to provide, using a project I'd
+actually want to use: a gallery for cat photos.
+
+## What I Built
+
+Feline Gallery is a full-stack ASP.NET Core MVC application where each layer
+has exactly one job. Controllers handle routing and orchestration only. Razor
+views handle presentation. Entity Framework Core models map directly to the
+SQL Server schema, with a repository-style data layer sitting between the
+controllers and the database so business logic never touches `DbContext`
+directly.
+
+## Tech Stack
+
+- **C# / ASP.NET Core MVC** — the framework the role I'm targeting (.NET
+  full-stack) is built on
+- **Razor Pages** — server-rendered views with strongly-typed models, so
+  template errors surface at compile time
+- **Entity Framework Core** — code-first models and migrations, keeping the
+  schema in version control alongside the code
+- **SQL Server** — relational storage for gallery metadata, tags, and user
+  uploads
+- **Bootstrap** — fast, consistent UI styling without hand-rolling a design
+  system for an internal tool
+
+## Key Challenges
+
+- **Keeping controllers thin.** It's tempting to put query logic directly in
+  controller actions. I pulled all data access into dedicated service classes,
+  so controllers just call a method and pass the result to a view.
+- **Image handling.** Storing images directly in SQL Server bloats the
+  database. I stored images on disk (with a path reference in the database)
+  and validated file types and sizes server-side before saving.
+- **Migrations discipline.** Every schema change went through an EF Core
+  migration rather than manual database edits, so the model and database
+  never drifted out of sync.
+
+## Results
+
+- A working CRUD gallery app with create, edit, delete, and browse flows
+- Clean separation between controllers, views, and data access — verified by
+  being able to swap the data layer's implementation without touching any
+  controller code
+- A codebase that's straightforward for another developer to onboard into,
+  because each file has one clear purpose
+
+## Lessons Learned
+
+- "Clean architecture" isn't an abstract principle — it's the difference
+  between a 200-line controller method and five 20-line methods that are each
+  easy to test.
+- EF Core migrations are worth the discipline even on small projects; they
+  turn "what changed in the schema" into a question git can answer.
+- Server-rendered MVC is still a very productive way to ship a working app
+  quickly, without the overhead of a separate frontend build pipeline.

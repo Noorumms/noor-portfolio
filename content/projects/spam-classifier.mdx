@@ -1,0 +1,56 @@
+## The Problem
+
+Email spam filters are usually treated as a black box — train a model, check
+accuracy, ship it. That approach hides whether the model is actually any good,
+or just good at predicting the majority class. I wanted to build a classifier
+where every claim about performance was backed by a real evaluation.
+
+## What I Built
+
+A complete NLP pipeline that cleans and tokenizes raw email text, removes stop
+words, and converts messages into TF-IDF feature vectors. On top of that
+feature set, I trained and compared three classifiers — Multinomial Naive
+Bayes, Logistic Regression, and a Linear SVM — using the same train/test split
+so the comparison would be fair.
+
+## Tech Stack
+
+- **Python** — the standard for ML prototyping and the language with the best
+  NLP tooling support
+- **NLTK** — tokenization, stop-word removal, and text normalization
+- **TF-IDF (Scikit-learn)** — turns raw text into weighted feature vectors
+  that reflect term importance across the corpus
+- **Naive Bayes / Logistic Regression / SVM** — three different modeling
+  assumptions, so I could see which inductive bias fit the data best
+
+## Key Challenges
+
+- **Class imbalance.** Spam datasets are rarely 50/50. Accuracy alone would
+  have hidden a model that just predicts "not spam" every time, so I tracked
+  precision, recall, and F1-score per class instead of relying on a single
+  number.
+- **Feature sparsity.** TF-IDF vectors are high-dimensional and sparse. I
+  tuned `min_df` and `max_df` thresholds to cut noise terms without losing
+  signal from rare-but-informative words.
+- **Model comparison.** Each algorithm has different strengths — Naive Bayes
+  is fast and works well with sparse text features, while SVM tends to find
+  better decision boundaries at the cost of training time. I benchmarked all
+  three rather than assuming one would win.
+
+## Results
+
+- 97%+ accuracy on the held-out test set with the best-performing model
+- Precision, recall, and F1-score computed for every classifier, not just
+  accuracy
+- A clear, evidence-based recommendation for which model to deploy and why
+
+## Lessons Learned
+
+- Accuracy is the easiest metric to report and the easiest one to be misled
+  by — precision/recall/F1 told a more honest story.
+- A lot of "feature engineering" in NLP is really just careful cleaning:
+  lowercasing, stripping HTML artifacts, and normalizing whitespace had a
+  bigger impact than I expected.
+- Simple models (Naive Bayes) are an excellent baseline — if a more complex
+  model can't beat it by a meaningful margin, it's not worth the extra
+  complexity.

@@ -1,0 +1,54 @@
+## The Problem
+
+Manually moving items between a to-do list and a calendar — checking due
+dates, creating events, updating statuses — is exactly the kind of repetitive,
+rule-based work that doesn't need a human in the loop. I wanted to measure how
+much time that actually costs, then automate it away.
+
+## What I Built
+
+An automation system built in n8n that connects Google Tasks and Google
+Calendar through OAuth-authenticated API calls. When a task is created or
+updated, the workflow applies conditional logic — checking due dates,
+priority, and existing calendar entries — to decide whether to create, update,
+or skip a corresponding calendar event, then performs the action via the
+relevant Google API.
+
+## Tech Stack
+
+- **n8n** — visual workflow automation that's easy to inspect, version, and
+  modify without redeploying code
+- **Google Calendar API & Google Tasks API** — the two systems that needed to
+  stay in sync
+- **OAuth** — secure, scoped access to a user's Google account without
+  handling raw credentials
+- **REST** — the underlying protocol for every API call in the workflow
+
+## Key Challenges
+
+- **Avoiding duplicate events.** Naively syncing on every trigger would create
+  a new calendar event each time a task updated. I added conditional checks
+  against existing event IDs before creating new ones.
+- **OAuth token refresh.** Long-running automations need to handle token
+  expiry gracefully. I configured n8n's credential refresh so the workflow
+  keeps running without manual re-authentication.
+- **Conditional branching.** Different task states (new, updated, completed,
+  overdue) needed different handling. I mapped out the decision tree first on
+  paper, then implemented it as a series of IF/Switch nodes in n8n.
+
+## Results
+
+- An estimated 60% reduction in time spent manually creating and updating
+  calendar entries from task lists
+- A workflow that runs unattended and handles edge cases (duplicates, missing
+  due dates, completed tasks) without manual intervention
+
+## Lessons Learned
+
+- Automation tools like n8n make the *logic* the hard part, not the
+  *plumbing* — most of my time went into getting the conditional rules right,
+  not the API integration.
+- Measuring "time saved" honestly required first measuring how long the manual
+  process actually took, which I hadn't done before starting.
+- OAuth scopes matter — requesting only the permissions the workflow actually
+  needs made the integration easier to explain and trust.

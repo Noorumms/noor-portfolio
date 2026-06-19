@@ -1,0 +1,54 @@
+## The Problem
+
+It's easy to call `model.fit()` in Scikit-learn without understanding what's
+happening underneath. For this project, I set myself a constraint: implement
+core ML algorithms using only NumPy and Pandas, so I'd have to understand the
+math, not just the API.
+
+## What I Built
+
+Four algorithms implemented from first principles in Jupyter Notebooks: a
+Decision Tree using the ID3 algorithm (with entropy and information gain
+computed manually), K-Means clustering with manual centroid updates and
+convergence checks, Linear Regression via gradient descent, and Logistic
+Regression with a manually implemented sigmoid and log-loss.
+
+## Tech Stack
+
+- **Python / NumPy** — vectorized math for gradient descent, distance
+  calculations, and entropy formulas
+- **Pandas** — dataset loading and preprocessing
+- **Matplotlib** — visualizing decision boundaries, cluster assignments, and
+  loss curves
+- **Jupyter Notebook** — iterative development with inline visualizations at
+  each step
+
+## Key Challenges
+
+- **Entropy and information gain.** Computing these manually for the decision
+  tree meant carefully handling edge cases — pure nodes (entropy = 0) and
+  features with many unique values that could otherwise dominate splits.
+- **Convergence in K-Means.** Without a library to handle it, I had to
+  implement my own stopping condition based on centroid movement between
+  iterations, and handle the case where a cluster ends up empty.
+- **Gradient descent stability.** For both regression models, choosing a
+  learning rate that converged without overshooting required plotting the
+  loss curve and adjusting — a step that's invisible when using
+  `Scikit-learn`.
+
+## Results
+
+- Four working implementations, each validated against Scikit-learn's
+  equivalent to confirm correctness of the math
+- Visualizations showing decision boundaries, cluster formation over
+  iterations, and loss convergence
+
+## Lessons Learned
+
+- Information gain calculations are sensitive to how you handle features with
+  many categories — a detail libraries abstract away entirely.
+- Gradient descent "just working" in Scikit-learn hides a lot of tuning;
+  building it manually made me much more deliberate about learning rates and
+  feature scaling.
+- Reimplementing a library function is one of the fastest ways to actually
+  understand why it has the parameters it does.

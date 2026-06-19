@@ -1,0 +1,58 @@
+## The Problem
+
+Real-time face and emotion detection is a common computer vision demo, but
+most tutorials stop at "it works on this one photo." I wanted a pipeline that
+handled varied lighting conditions and produced structured output that could
+actually be analyzed afterward, not just a bounding box on screen.
+
+## What I Built
+
+A computer vision pipeline that detects faces using OpenCV's Haar Cascade
+classifier, applies histogram equalization to normalize lighting before
+detection, then passes detected faces to DeepFace for emotion classification.
+The pipeline outputs annotated images with bounding boxes and emotion labels,
+plus a CSV summarizing detected emotions across the dataset.
+
+## Tech Stack
+
+- **Python** — glue between OpenCV and DeepFace
+- **OpenCV** — Haar Cascade face detection and image preprocessing
+- **DeepFace** — pretrained emotion classification on detected face regions
+- **Haar Cascade** — fast, lightweight face detection suitable for batch
+  processing
+- **Google Colab** — free GPU access for running DeepFace inference at
+  reasonable speed
+
+## Key Challenges
+
+- **Lighting variance.** Haar Cascade is sensitive to contrast and lighting.
+  Applying histogram equalization before detection noticeably improved
+  detection rates on darker or unevenly lit images.
+- **False positives.** Haar Cascade occasionally flagged non-face regions. I
+  tuned `minNeighbors` and `minSize` parameters to reduce false positives
+  without losing real faces, trading off recall against precision.
+- **Batch output structure.** Running this across many images meant the output
+  needed to be analyzable, not just visual — I structured the CSV so each row
+  maps an image, a detected face, and its predicted emotion, making it
+  possible to aggregate results afterward.
+
+## Results
+
+- Annotated output images with bounding boxes and emotion labels for each
+  detected face
+- A CSV summary suitable for further analysis (e.g., emotion distribution
+  across a dataset)
+- Noticeably improved detection consistency after adding preprocessing,
+  compared to running Haar Cascade on raw images
+
+## Lessons Learned
+
+- Preprocessing often matters more than the detection algorithm itself —
+  histogram equalization was a small change with a large effect.
+- Classical CV techniques (Haar Cascade) and modern deep-learning models
+  (DeepFace) aren't mutually exclusive — using the fast classical method for
+  detection and the heavier model only for classification kept the pipeline
+  efficient.
+- Structuring output for analysis from the start (CSV, not just images) made
+  it possible to ask "what did this pipeline actually find?" instead of just
+  eyeballing a folder of images.

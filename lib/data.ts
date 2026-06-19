@@ -42,7 +42,7 @@ export const personalInfo = {
   email: 'noorefatimah0@gmail.com',
   github: 'https://github.com/Noorumms',
   linkedin: 'https://linkedin.com/in/noor-fatimah-8b86322a7',
-  siteUrl: 'https://noorfatima.dev',
+  siteUrl: 'https://noorumms.vercel.app/',
 }
 
 export const navItems = [
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     description:
       'NLP pipeline achieving 97%+ accuracy on real-world email classification — trained, benchmarked, and evaluated three classifier models with precision, recall, and F1-score.',
     tech: ['Python', 'NLTK', 'TF-IDF', 'Scikit-learn', 'Naive Bayes', 'Logistic Regression', 'SVM'],
-    githubUrl: 'https://github.com/Noorumms',
+    githubUrl: 'https://github.com/Noorumms/sms_email-spam-classifier',
     liveUrl: 'https://spam-checker-app.streamlit.app/',
     featured: true,
   },
@@ -93,7 +93,7 @@ export const projects: Project[] = [
     description:
       'Full-stack image gallery application built on ASP.NET Core MVC with clean separation of concerns — controllers, Razor views, and EF Core models each with a single defined responsibility.',
     tech: ['C#', 'ASP.NET Core MVC', 'Razor Pages', 'Entity Framework Core', 'SQL Server', 'Bootstrap'],
-    githubUrl: 'https://github.com/Noorumms',
+    githubUrl: 'https://github.com/Noorumms/FelineGallery',
     liveUrl: 'http://www.felinegallery.somee.com',
     featured: true,
   },

@@ -10,6 +10,10 @@ export default function About() {
 
       <div className="space-y-5 text-base leading-relaxed text-text-secondary">
         <p>
+          I&apos;m a final-year Software Engineering student at PUCIT Lahore building AI-powered
+          systems end to end — from the model to the product.
+        </p>
+        <p>
           I write code that does something — a gallery app where every layer has a defined
           responsibility, an NLP classifier that outperforms baselines by iterating on
           evaluation metrics, automation workflows that reclaim 60% of manual scheduling time.

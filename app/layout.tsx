@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: '%s | Noor Fatima',
   },
   description:
-    'Final-year Software Engineering student at PUCIT Lahore. Building full-stack web apps, ML pipelines, and Android applications. Open to internship opportunities.',
+    'BS Software Engineering student at PUCIT Lahore (Class of 2027). Building AI-powered systems end to end — ML pipelines, ASP.NET Core backends, Computer Vision. Open to internships from July 2026.',
   keywords: [
     'Noor Fatima',
     'software engineer Pakistan',

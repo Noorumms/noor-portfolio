@@ -8,9 +8,14 @@ export default function Footer() {
         Let&apos;s work together.
       </h2>
       <p className="mt-4 max-w-md text-sm leading-relaxed text-text-secondary">
-        I&apos;m currently open to Software Engineering internship opportunities — remote or
-        Lahore-based. If you&apos;re hiring or know someone who is, I&apos;d love to hear from
-        you.
+        I&apos;m available for Software Engineering, Full-Stack, or ML internship opportunities
+        starting July 2026 — remote or Lahore-based. Reach out directly at{' '}
+        <a
+          href="mailto:noorefatimah0@gmail.com"
+          className="text-purple hover:text-purple-hover transition-colors duration-200"
+        >
+          noorefatimah0@gmail.com
+        </a>
       </p>
 
       <a

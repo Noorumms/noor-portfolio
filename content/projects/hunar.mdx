@@ -1,0 +1,99 @@
+## Overview
+
+Hunar is a hyperlocal skilled worker marketplace — a platform connecting customers with
+verified service providers (plumbers, electricians, cleaners, carpenters, etc.) across
+Pakistani cities. The name means "skill" in Urdu, and the goal is to make skilled work
+findable and bookable the way Careem made rides bookable.
+
+This is a 9-day structured build. Each day has a defined scope. I am building it publicly
+as a demonstration of production-grade .NET architecture applied to a real problem.
+
+## What I Built
+
+The backend is a REST API built with **ASP.NET Core Web API** following **Clean Architecture**
+across four distinct layers — no shortcuts, no layer violations:
+
+- **Domain** — pure C# entities and business rules. No framework dependencies.
+- **Application** — use cases, interfaces, DTOs, and business logic. Depends only on Domain.
+- **Infrastructure** — EF Core implementation, repositories, external services. Implements Application interfaces.
+- **API** — controllers, middleware, DI registration. Thin layer that delegates to Application.
+
+Authentication uses **JWT with three roles**: Customer, Provider, and Admin — each with
+scoped access enforced at the controller level. The booking system implements a full
+**state machine**: `Pending → Confirmed → Completed → Cancelled`, with invalid transitions
+rejected at the service layer.
+
+The codebase also demonstrates **Events and Delegates**, a configurable **Middleware pipeline**
+for logging and error handling, and **LINQ queries** for filtering providers by location,
+category, and availability.
+
+The final phase will add an **AI-powered provider matching layer** — using proximity,
+ratings, and job history to rank providers rather than returning a flat list.
+
+## Architecture
+
+```
+┌─────────────────────────────────────────┐
+│  API Layer                              │
+│  Controllers · Middleware · DI Setup    │
+├─────────────────────────────────────────┤
+│  Application Layer                      │
+│  Use Cases · Interfaces · DTOs          │
+├─────────────────────────────────────────┤
+│  Infrastructure Layer                   │
+│  EF Core · Repositories · SQL Server   │
+├─────────────────────────────────────────┤
+│  Domain Layer                           │
+│  Entities · Business Rules · Enums      │
+└─────────────────────────────────────────┘
+```
+
+Dependencies flow inward only. Domain knows nothing about EF Core or HTTP.
+
+## Tech Stack
+
+- **C# / ASP.NET Core Web API** — idiomatic .NET REST backend
+- **EF Core** — code-first database with migrations
+- **SQL Server** — relational storage for users, providers, bookings, categories
+- **JWT** — stateless auth with role claims (Customer / Provider / Admin)
+- **Clean Architecture** — enforced layer separation for maintainability and testability
+- **HTML/CSS/JS** — lightweight frontend for testing booking flows
+
+## Progress Tracker
+
+| Day | Scope | Status |
+|-----|-------|--------|
+| Day 1 | Solution setup, Domain entities, EF Core configuration, database migrations | ✅ Done |
+| Day 2 | Repository pattern, Application layer interfaces, base use cases | Upcoming |
+| Day 3 | JWT authentication, user registration & login, role claims | Upcoming |
+| Day 4 | Provider profile management, category & location filtering | Upcoming |
+| Day 5 | Booking creation, state machine (Pending → Confirmed → Completed → Cancelled) | Upcoming |
+| Day 6 | Admin panel endpoints, provider approval flow | Upcoming |
+| Day 7 | Events & Delegates pattern, domain event publishing | Upcoming |
+| Day 8 | Middleware pipeline (logging, global error handling), LINQ query optimization | Upcoming |
+| Day 9 | AI matching layer (proximity + rating ranking), deployment | Upcoming |
+
+## Key Challenges
+
+- **Layer discipline.** The biggest challenge in Clean Architecture isn't the structure —
+  it's enforcing it. Every time it was tempting to reference EF Core from the Application
+  layer, I stopped and defined an interface instead. This added upfront overhead but means
+  the data layer can be swapped without touching business logic.
+- **Booking state machine.** A booking can be in multiple states, and not all transitions
+  are valid. Rather than using a chain of if-else checks in controllers, I modeled state
+  transitions as explicit methods on the Booking entity, so invalid transitions throw domain
+  exceptions that propagate cleanly to the API response.
+- **JWT role scoping.** Three roles with different capabilities meant designing the auth
+  middleware once and enforcing access at the controller/action level using `[Authorize(Roles = "...")]`
+  — not repeated conditional logic in service methods.
+
+## Lessons Learned (so far)
+
+- Clean Architecture's value shows immediately when requirements change — adding a new
+  booking state required touching only the Domain entity and one Application use case,
+  not controllers or database setup.
+- Writing domain entities before touching EF Core forces you to think in terms of business
+  rules first, not columns. The schema becomes a consequence of the model, not the other
+  way around.
+- A state machine on the entity itself (rather than in the service layer) makes the
+  business rules explicit and testable in isolation.

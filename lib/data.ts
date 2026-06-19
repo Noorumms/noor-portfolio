@@ -8,6 +8,7 @@ export interface Project {
   githubUrl?: string
   liveUrl?: string
   featured: boolean
+  inProgress?: boolean
 }
 
 export interface Experience {
@@ -61,6 +62,18 @@ export const metrics: Metric[] = [
 
 export const projects: Project[] = [
   {
+    slug: 'hunar',
+    year: '2025',
+    category: 'Full-Stack · ASP.NET Core · Clean Architecture',
+    title: 'Hunar — Hyperlocal Services Marketplace',
+    description:
+      'A hyperlocal skilled worker marketplace connecting customers with nearby service providers across Pakistani cities. Built with Clean Architecture, JWT authentication, role-based access, and a full booking workflow. An AI-powered provider matching layer is planned for the final phase.',
+    tech: ['C#', 'ASP.NET Core Web API', 'EF Core', 'SQL Server', 'JWT', 'Clean Architecture', 'HTML/CSS/JS'],
+    githubUrl: 'https://github.com/noorumms/Hunar',
+    featured: true,
+    inProgress: true,
+  },
+  {
     slug: 'spam-classifier',
     year: '2024',
     category: 'Machine Learning · NLP',
@@ -69,6 +82,7 @@ export const projects: Project[] = [
       'NLP pipeline achieving 97%+ accuracy on real-world email classification — trained, benchmarked, and evaluated three classifier models with precision, recall, and F1-score.',
     tech: ['Python', 'NLTK', 'TF-IDF', 'Scikit-learn', 'Naive Bayes', 'Logistic Regression', 'SVM'],
     githubUrl: 'https://github.com/Noorumms',
+    liveUrl: 'https://spam-checker-app.streamlit.app/',
     featured: true,
   },
   {
@@ -80,6 +94,7 @@ export const projects: Project[] = [
       'Full-stack image gallery application built on ASP.NET Core MVC with clean separation of concerns — controllers, Razor views, and EF Core models each with a single defined responsibility.',
     tech: ['C#', 'ASP.NET Core MVC', 'Razor Pages', 'Entity Framework Core', 'SQL Server', 'Bootstrap'],
     githubUrl: 'https://github.com/Noorumms',
+    liveUrl: 'http://www.felinegallery.somee.com',
     featured: true,
   },
   {
@@ -142,17 +157,6 @@ export const experiences: Experience[] = [
     ],
     tech: ['OOP', 'System Design', 'Code Review', 'SOLID', 'Mentoring'],
   },
-  {
-    dateRange: '2025 — Present',
-    role: 'Freelance Technical Content Writer',
-    company: 'LinkedIn Ghostwriting',
-    location: 'Remote',
-    bullets: [
-      'Wrote technical documentation and engineering content for professional audiences',
-      'Translated complex software engineering concepts into accessible, non-technical deliverables',
-    ],
-    tech: ['Technical Writing', 'Documentation', 'Communication'],
-  },
 ]
 
 export const skillGroups: SkillGroup[] = [
@@ -162,11 +166,11 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: 'Frameworks & Platforms',
-    skills: ['ASP.NET Core', '.NET MVC', 'React', 'Blazor', 'REST APIs', 'Clean Architecture'],
+    skills: ['ASP.NET Core', '.NET MVC', 'Blazor', 'REST APIs', 'Clean Architecture'],
   },
   {
     label: 'AI / ML',
-    skills: ['Scikit-learn', 'NumPy', 'Pandas', 'Matplotlib', 'OpenCV', 'NLTK', 'TF-IDF', 'TensorFlow/Keras'],
+    skills: ['Scikit-learn', 'NumPy', 'Pandas', 'Matplotlib', 'OpenCV', 'NLTK', 'TF-IDF'],
   },
   {
     label: 'Mobile',
@@ -182,7 +186,7 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     label: 'Practices',
-    skills: ['OOP', 'MVC', 'SOLID', 'DSA', 'Microservices', 'Agile', 'SDLC'],
+    skills: ['OOP', 'MVC', 'SOLID', 'DSA', 'Agile', 'SDLC'],
   },
 ]
 

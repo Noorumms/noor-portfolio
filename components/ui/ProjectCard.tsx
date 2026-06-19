@@ -16,9 +16,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <span className="font-mono text-xs text-text-muted">{project.category}</span>
       </div>
 
-      <h3 className="text-lg font-semibold text-text-primary transition-colors duration-200 group-hover:text-purple">
-        {project.title}
-      </h3>
+      <div className="flex items-center gap-2">
+        <h3 className="text-lg font-semibold text-text-primary transition-colors duration-200 group-hover:text-purple">
+          {project.title}
+        </h3>
+        {project.inProgress && (
+          <span className="inline-flex items-center rounded px-1.5 py-0.5 text-xs font-medium bg-amber-500/15 text-amber-400 border border-amber-500/30">
+            In Progress
+          </span>
+        )}
+      </div>
+
       <p className="mt-2 text-sm leading-relaxed text-text-secondary">{project.description}</p>
 
       <ul className="mt-4 flex flex-wrap gap-2" aria-label="Technologies used">
@@ -42,6 +50,20 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             GitHub
           </a>
         )}
+        {project.liveUrl ? (
+          <a
+            href={project.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1 text-text-secondary hover:text-purple transition-colors duration-200"
+            aria-label={`Live demo of ${project.title}`}
+          >
+            Live Demo
+            <ArrowUpRight size={14} aria-hidden="true" />
+          </a>
+        ) : project.inProgress ? (
+          <span className="text-text-muted text-xs">Deployment planned — Day 9</span>
+        ) : null}
         <Link
           href={`/projects/${project.slug}`}
           className="inline-flex items-center gap-1 text-text-secondary hover:text-purple transition-colors duration-200"

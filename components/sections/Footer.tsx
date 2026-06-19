@@ -47,7 +47,7 @@ export default function Footer() {
       </div>
 
       <p className="mt-12 text-xs text-text-muted">
-        Built with Next.js &amp; Tailwind. Designed with intention.
+        Noor Fatima © 2026
       </p>
     </footer>
   )

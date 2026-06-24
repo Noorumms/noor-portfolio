@@ -74,13 +74,3 @@ Dependencies flow inward only. Domain knows nothing about EF Core or HTTP.
   middleware once and enforcing access at the controller/action level using `[Authorize(Roles = "...")]`
   — not repeated conditional logic in service methods.
 
-## Lessons Learned (so far)
-
-- Clean Architecture's value shows immediately when requirements change — adding a new
-  booking state required touching only the Domain entity and one Application use case,
-  not controllers or database setup.
-- Writing domain entities before touching EF Core forces you to think in terms of business
-  rules first, not columns. The schema becomes a consequence of the model, not the other
-  way around.
-- A state machine on the entity itself (rather than in the service layer) makes the
-  business rules explicit and testable in isolation.

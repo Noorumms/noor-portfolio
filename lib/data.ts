@@ -79,10 +79,33 @@ export const projects: Project[] = [
     category: 'Machine Learning · NLP',
     title: 'Spam Email Classifier',
     description:
-      'NLP pipeline achieving 97%+ accuracy on real-world email classification — trained, benchmarked, and evaluated three classifier models with precision, recall, and F1-score.',
+      'NLP pipeline achieving 97%+ accuracy on real-world email classification, trained, benchmarked, and evaluated across three classifier models with precision, recall, and F1-score.',
     tech: ['Python', 'NLTK', 'TF-IDF', 'Scikit-learn', 'Naive Bayes', 'Logistic Regression', 'SVM'],
     githubUrl: 'https://github.com/Noorumms/sms_email-spam-classifier',
     liveUrl: 'https://spam-checker-app.streamlit.app/',
+    featured: true,
+  },
+  {
+    slug: 'car-price-predictor',
+    year: '2026',
+    category: 'Machine Learning',
+    title: 'Car Price Predictor — Regression Pipeline',
+    description:
+      'An end-to-end ML regression pipeline predicting used car prices from real Quikr India listings. Covers full data cleaning, EDA with interpretations, and a Scikit-learn Pipeline wrapping OneHotEncoding and Linear Regression together. Benchmarked across 1000 random train/test splits to find the most stable model. Deployed as a live Streamlit web app.',
+    tech: ['Python', 'Pandas', 'Scikit-learn', 'Linear Regression', 'Streamlit'],
+    githubUrl: 'https://github.com/Noorumms/car-price-predictor',
+    liveUrl: 'https://preloved-wheels.streamlit.app',
+    featured: true,
+  },
+  {
+    slug: 'virtual-paint',
+    year: '2026',
+    category: 'Computer Vision',
+    title: 'Virtual Paint — Real-Time CV App',
+    description:
+      'A real-time virtual painting app built with Python and OpenCV. Point any colored object at your webcam and draw on screen — no mouse, no touchscreen needed. Detects orange, purple, and green simultaneously, with adjustable brush sizes, an eraser, canvas clear, and PNG export.',
+    tech: ['Python', 'OpenCV', 'NumPy', 'HSV Color Detection', 'Real-Time Processing'],
+    githubUrl: 'https://github.com/Noorumms',
     featured: true,
   },
   {
@@ -91,10 +114,9 @@ export const projects: Project[] = [
     category: 'Full-Stack · ASP.NET Core',
     title: 'Feline Gallery',
     description:
-      'Full-stack image gallery application built on ASP.NET Core MVC with clean separation of concerns — controllers, Razor views, and EF Core models each with a single defined responsibility.',
+      'Full-stack image gallery application built on ASP.NET Core MVC with clean separation of concerns: controllers, Razor views, and EF Core models each with a single defined responsibility.',
     tech: ['C#', 'ASP.NET Core MVC', 'Razor Pages', 'Entity Framework Core', 'SQL Server', 'Bootstrap'],
     githubUrl: 'https://github.com/Noorumms/FelineGallery',
-    liveUrl: 'http://www.felinegallery.somee.com',
     featured: true,
   },
   {
@@ -103,7 +125,7 @@ export const projects: Project[] = [
     category: 'Automation · API Integration',
     title: 'AI Task & Event Manager',
     description:
-      'Automation system integrating Google Calendar and Tasks APIs with conditional logic and OAuth authentication — reducing manual scheduling effort by an estimated 60%.',
+      'Automation system integrating Google Calendar and Tasks APIs with conditional logic and OAuth authentication, reducing manual scheduling effort by an estimated 60%.',
     tech: ['n8n', 'Google Calendar API', 'Google Tasks API', 'REST', 'OAuth'],
     githubUrl: 'https://github.com/Noorumms',
     featured: true,
@@ -114,31 +136,9 @@ export const projects: Project[] = [
     category: 'Machine Learning · Academic',
     title: 'ML Algorithms from Scratch',
     description:
-      'Decision Tree (ID3), K-Means Clustering, Linear Regression, and Logistic Regression implemented without Scikit-learn — manually computing entropy, information gain, and gradient descent.',
+      'Decision Tree (ID3), K-Means Clustering, Linear Regression, and Logistic Regression implemented without Scikit-learn, manually computing entropy, information gain, and gradient descent.',
     tech: ['Python', 'NumPy', 'Pandas', 'Matplotlib', 'Jupyter Notebook'],
-    githubUrl: 'https://github.com/Noorumms',
-    featured: false,
-  },
-  {
-    slug: 'face-emotion',
-    year: '2024',
-    category: 'Computer Vision',
-    title: 'Face & Emotion Recognition',
-    description:
-      'Real-time face detection pipeline using Haar Cascade and DeepFace with histogram equalization preprocessing — outputs annotated images and emotion summary CSVs.',
-    tech: ['Python', 'OpenCV', 'DeepFace', 'Haar Cascade', 'Google Colab'],
-    githubUrl: 'https://github.com/Noorumms',
-    featured: false,
-  },
-  {
-    slug: 'android-apps',
-    year: '2024',
-    category: 'Mobile · Android',
-    title: 'Android Apps — Affirmations & Quotes',
-    description:
-      'Two Android applications built with Jetpack Compose, Firebase Auth and Firestore, real-time search with StateFlow, and MVVM architecture for clean, testable code.',
-    tech: ['Kotlin', 'Jetpack Compose', 'Firebase Auth', 'Firebase Firestore', 'MVVM'],
-    githubUrl: 'https://github.com/Noorumms',
+    githubUrl: 'https://github.com/Noorumms/ml-from-scratch',
     featured: false,
   },
 ]

@@ -1,0 +1,29 @@
+## What It Does
+
+Virtual Paint lets you draw on screen using a physical object as your brush. You hold something orange, purple, or green up to your webcam and move it around — the app traces your path in that color directly on a canvas overlay. No mouse, no stylus, no touchscreen. You can switch brush sizes, toggle an eraser, clear the canvas, and save your drawing as a PNG, all while the camera keeps running.
+
+## How It Works
+
+Each frame from the webcam goes through the same sequence. OpenCV reads the frame in BGR format and converts it to HSV color space. Then for each of the three colors, the code calls inRange with the lower and upper HSV bounds for that color, which produces a binary mask where white pixels represent that color and black pixels represent everything else. The app then finds contours in that mask, picks the largest contour, and extracts its center point as an x and y coordinate — that's the brush tip.
+
+Those coordinates get saved to a list that also stores which color was active and what brush size was selected at that moment. Every frame, the app loops through the entire list and draws each saved point as a filled circle on the canvas. Because this happens on every frame at a consistent size and position, the circles appear to connect into a smooth painted trail as you move the object.
+
+The result is rendered on top of the live camera feed so you can see both your hand and the drawing at the same time.
+
+## Why HSV Instead of BGR
+
+BGR represents color by mixing red, green, and blue light intensities into every pixel value. The problem is that brightness affects all three channels at once. Under a bright light, an orange object might have very different BGR values than the same object under dim lighting, even though it's the same color. That makes it difficult to write a reliable rule for isolating orange based on BGR values alone.
+
+HSV separates those concerns. Hue is a single channel that encodes color as a position on the color wheel, completely independent of how bright or saturated the image is. Saturation controls how vivid the color appears. Value controls brightness. So if you want to isolate orange, you define a range on the Hue channel and let Saturation and Value handle whatever lighting conditions the room happens to have. A narrow Hue range plus a reasonable Saturation minimum works consistently whether you're sitting by a window or in a dark room, because brightness is a separate dimension rather than mixed into every value.
+
+## Keyboard Controls
+
+| Key | Action |
+|-----|--------|
+| Z | Small brush |
+| X | Medium brush |
+| V | Large brush |
+| E | Toggle eraser |
+| C | Clear the canvas |
+| S | Save drawing as PNG |
+| Q | Quit |

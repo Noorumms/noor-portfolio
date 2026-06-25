@@ -10,7 +10,7 @@ export default function About() {
 
       <div className="space-y-5 text-base leading-relaxed text-text-secondary">
         <p>
-          I&apos;m a final-year Software Engineering student at PUCIT Lahore building AI-powered
+          I&apos;m a third-year Software Engineering student at PUCIT Lahore building AI-powered
           systems end to end — from the model to the product.
         </p>
         <p>
@@ -31,7 +31,7 @@ export default function About() {
         </p>
         <p>
           I&apos;m actively looking for Software Engineering, Full-Stack, or ML internship
-          opportunities — remote or Lahore-based — where I can contribute from the first week.
+          opportunities, remote or Lahore-based, where I can contribute from the first week.
         </p>
       </div>
 

@@ -1,0 +1,31 @@
+## What It Does
+
+You enter a car's company, model, year, fuel type, and kilometres driven and the app gives you an estimated market price in INR. The predictions are based on real used car listings scraped from Quikr India, so the model reflects what people are actually paying rather than a theoretical depreciation curve. It runs as a live Streamlit web app — enter the details and get a number in seconds.
+
+## Cleaning the Data
+
+The raw Quikr dataset was messy in ways that had to be handled before any modelling could happen.
+
+The year column had values like "Lucky" and "Individual" mixed in with actual years. Those rows had slipped in because the scraper pulled whatever text appeared in that field. Filtering the column to only keep four-digit numeric values removed them cleanly.
+
+The price column had rows where the seller had written "Ask For Price" instead of a number. Those couldn't be predicted from or predicted against, so they were dropped entirely.
+
+Kilometres driven came in as strings like "45,000 kms" — the unit label and the comma both had to be stripped before the column could be converted to integers. A simple string operation handled the label, and removing the comma before converting to int covered the formatting issue.
+
+Car names in the original dataset were full strings like "Maruti Suzuki Alto 800 LXi CNG" — far too specific to encode usefully. Keeping only the first three words of the name gave something like "Maruti Suzuki Alto" which captures the brand and model without fragmenting the data into hundreds of near-unique categories.
+
+## Why Brand Matters More Than Year or Kilometres
+
+The correlation heatmap showed that year and kilometres driven both have weak correlation with price on their own. This surprised me at first because it seems obvious that older cars with more kilometres should be worth less. But the data tells a different story once you think about it.
+
+A 2015 BMW and a 2015 Maruti Suzuki are in completely different price brackets regardless of how many kilometres either has done. The BMW starts from a higher base price, retains value differently, and appeals to a completely different buyer. Brand encodes a whole category of expectations about build quality, service costs, resale demand, and prestige that raw numbers like year and kms cannot capture on their own. Year and kilometres are still in the model as features, but brand is doing most of the heavy lifting.
+
+## Finding the Best Split
+
+Train-test split is random, which means different random states give different R2 scores. Rather than pick one arbitrarily and report whatever number it produced, the model was trained 1000 times with different random states. The split that gave the best R2 score was kept as the final model. This isn't cross-validation but it does avoid the situation where a single lucky or unlucky split misrepresents how stable the model actually is.
+
+## Why a Pipeline
+
+The preprocessing and the model are wrapped together in a single Scikit-learn Pipeline. OneHotEncoder runs first to convert categorical features like brand and fuel type into numeric columns, then Linear Regression runs on the result.
+
+The reason this matters is consistency. When you call Pipeline.predict on new input, it runs the encoder and then the regression in exactly the same way the training data was processed. If you kept them as separate steps, there would be a risk of applying the encoding differently at prediction time than at training time — maybe fitting a new encoder on the test data, or transforming columns in a different order. That would silently produce wrong predictions without throwing any errors. Wrapping both steps into one object makes that class of mistake impossible.

@@ -10,28 +10,24 @@ export default function About() {
 
       <div className="space-y-5 text-base leading-relaxed text-text-secondary">
         <p>
-          I&apos;m a third-year Software Engineering student at PUCIT Lahore building AI-powered
-          systems end to end, from the model to the product.
+          I&apos;m a Software Engineering student at PUCIT Lahore building toward Machine Learning
+          and Computer Vision. Software engineering is my foundation — I know how to design systems,
+          write maintainable code, and ship things that actually work.
         </p>
         <p>
-          I write code that does something: a gallery app where every layer has a defined
-          responsibility, an NLP classifier that outperforms baselines by iterating on
-          evaluation metrics, automation workflows that reclaim 60% of manual scheduling time.
+          My current path is Classical ML → Deep Learning → Computer Vision. I&apos;m now interning
+          in ML at Ebryx, working on real ML workflows and strengthening my understanding of how
+          models get built and deployed in practice.
         </p>
         <p>
-          I&apos;m finishing my BS in Software Engineering at PUCIT Lahore (CGPA 3.5), where I
-          also TA for OOP and Software Engineering courses for 200+ students per semester.
-          Teaching forces clarity. You can&apos;t explain SOLID principles to a room of 200
-          without genuinely understanding them yourself.
+          I&apos;ve TA&apos;d OOP and Software Engineering at PUCIT for 200+ students a semester.
+          Teaching forces clarity. You can&apos;t explain SOLID principles to a room of 200 without
+          genuinely understanding them yourself.
         </p>
         <p>
-          My stack spans more than most students at this stage: ASP.NET Core MVC on the
-          backend, Python with Scikit-learn and OpenCV for ML, Kotlin with Jetpack Compose for
-          Android, and n8n for automation. I build what the problem requires.
-        </p>
-        <p>
-          I&apos;m actively looking for Software Engineering, Full-Stack, or ML internship
-          opportunities, remote or Lahore-based, where I can contribute from the first week.
+          I build things to understand them: ML classifiers from scratch, a full-stack marketplace
+          with Clean Architecture, a real-time CV app using only a webcam and HSV color detection.
+          Each project is a forcing function for depth.
         </p>
       </div>
 

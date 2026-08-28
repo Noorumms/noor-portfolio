@@ -37,8 +37,8 @@ export interface Achievement {
 export const personalInfo = {
   name: 'Noor Fatima',
   role: 'Software Engineer',
-  tagline: 'Full-Stack · ML · .NET',
-  oneLiner: 'Building real things with measurable results.',
+  tagline: 'SE → ML → Computer Vision',
+  oneLiner: 'Building toward AI systems from a software engineering foundation.',
   email: 'noorefatimah0@gmail.com',
   github: 'https://github.com/Noorumms',
   linkedin: 'https://linkedin.com/in/noor-fatimah-8b86322a7',
@@ -47,10 +47,12 @@ export const personalInfo = {
 
 export const navItems = [
   { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
+  { id: 'journey', label: 'Journey' },
   { id: 'experience', label: 'Experience' },
+  { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
   { id: 'education', label: 'Education' },
+  { id: 'contact', label: 'Contact' },
 ]
 
 export const metrics: Metric[] = [
@@ -62,16 +64,15 @@ export const metrics: Metric[] = [
 
 export const projects: Project[] = [
   {
-    slug: 'hunar',
-    year: '2025',
-    category: 'Full-Stack · ASP.NET Core · Clean Architecture',
-    title: 'Hunar — Hyperlocal Services Marketplace',
+    slug: 'virtual-paint',
+    year: '2026',
+    category: 'Computer Vision',
+    title: 'Virtual Paint — Real-Time CV App',
     description:
-      'A hyperlocal skilled worker marketplace connecting customers with nearby service providers across Pakistani cities. Built with Clean Architecture, JWT authentication, role-based access, and a full booking workflow. An AI-powered provider matching layer is planned for the final phase.',
-    tech: ['C#', 'ASP.NET Core Web API', 'EF Core', 'SQL Server', 'JWT', 'Clean Architecture', 'HTML/CSS/JS'],
-    githubUrl: 'https://github.com/noorumms/Hunar',
+      'A real-time virtual painting app built with Python and OpenCV. Point any colored object at your webcam and draw on screen — no mouse, no touchscreen needed. Detects orange, purple, and green simultaneously, with adjustable brush sizes, an eraser, canvas clear, and PNG export.',
+    tech: ['Python', 'OpenCV', 'NumPy', 'HSV Color Detection', 'Real-Time Processing'],
+    githubUrl: 'https://github.com/Noorumms',
     featured: true,
-    inProgress: true,
   },
   {
     slug: 'spam-classifier',
@@ -98,15 +99,38 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: 'virtual-paint',
-    year: '2026',
-    category: 'Computer Vision',
-    title: 'Virtual Paint — Real-Time CV App',
+    slug: 'ml-from-scratch',
+    year: '2024',
+    category: 'Machine Learning · Academic',
+    title: 'ML Algorithms from Scratch',
     description:
-      'A real-time virtual painting app built with Python and OpenCV. Point any colored object at your webcam and draw on screen — no mouse, no touchscreen needed. Detects orange, purple, and green simultaneously, with adjustable brush sizes, an eraser, canvas clear, and PNG export.',
-    tech: ['Python', 'OpenCV', 'NumPy', 'HSV Color Detection', 'Real-Time Processing'],
-    githubUrl: 'https://github.com/Noorumms',
+      'Decision Tree (ID3), K-Means Clustering, Linear Regression, and Logistic Regression implemented without Scikit-learn, manually computing entropy, information gain, and gradient descent.',
+    tech: ['Python', 'NumPy', 'Pandas', 'Matplotlib', 'Jupyter Notebook'],
+    githubUrl: 'https://github.com/Noorumms/ml-from-scratch',
     featured: true,
+  },
+  {
+    slug: 'mnist-classifier',
+    year: '2024',
+    category: 'Machine Learning · Computer Vision',
+    title: 'MNIST Digit Classification',
+    description:
+      'Digit classifier trained on MNIST without deep learning. Features extracted manually using pixel statistics and structural patterns, then fed into Scikit-learn classifiers. Explores how far handcrafted features can get before CNNs become necessary.',
+    tech: ['Python', 'NumPy', 'Scikit-learn', 'OpenCV', 'Jupyter Notebook'],
+    githubUrl: 'https://github.com/Noorumms/MNIST-Digit-Classification-Using-Handcrafted-Features',
+    featured: true,
+  },
+  {
+    slug: 'hunar',
+    year: '2025',
+    category: 'Full-Stack · ASP.NET Core · Clean Architecture',
+    title: 'Hunar — Hyperlocal Services Marketplace',
+    description:
+      'A hyperlocal skilled worker marketplace connecting customers with nearby service providers across Pakistani cities. Built with Clean Architecture, JWT authentication, role-based access, and a full booking workflow. An AI-powered provider matching layer is planned for the final phase.',
+    tech: ['C#', 'ASP.NET Core Web API', 'EF Core', 'SQL Server', 'JWT', 'Clean Architecture', 'HTML/CSS/JS'],
+    githubUrl: 'https://github.com/noorumms/Hunar',
+    featured: true,
+    inProgress: true,
   },
   {
     slug: 'feline-gallery',
@@ -117,7 +141,7 @@ export const projects: Project[] = [
       'Full-stack image gallery application built on ASP.NET Core MVC with clean separation of concerns: controllers, Razor views, and EF Core models each with a single defined responsibility.',
     tech: ['C#', 'ASP.NET Core MVC', 'Razor Pages', 'Entity Framework Core', 'SQL Server', 'Bootstrap'],
     githubUrl: 'https://github.com/Noorumms/FelineGallery',
-    featured: true,
+    featured: false,
   },
   {
     slug: 'ai-task-manager',
@@ -127,28 +151,6 @@ export const projects: Project[] = [
     description:
       'Automation system integrating Google Calendar and Tasks APIs with conditional logic and OAuth authentication, reducing manual scheduling effort by an estimated 60%.',
     tech: ['n8n', 'Google Calendar API', 'Google Tasks API', 'REST', 'OAuth'],
-    githubUrl: 'https://github.com/Noorumms',
-    featured: true,
-  },
-  {
-    slug: 'ml-from-scratch',
-    year: '2024',
-    category: 'Machine Learning · Academic',
-    title: 'ML Algorithms from Scratch',
-    description:
-      'Decision Tree (ID3), K-Means Clustering, Linear Regression, and Logistic Regression implemented without Scikit-learn, manually computing entropy, information gain, and gradient descent.',
-    tech: ['Python', 'NumPy', 'Pandas', 'Matplotlib', 'Jupyter Notebook'],
-    githubUrl: 'https://github.com/Noorumms/ml-from-scratch',
-    featured: false,
-  },
-  {
-    slug: 'mnist-classifier',
-    year: '2024',
-    category: 'Machine Learning · Computer Vision',
-    title: 'MNIST Digit Classification',
-    description:
-      'Digit classifier trained on MNIST without deep learning. Features extracted manually using pixel statistics and structural patterns, then fed into Scikit-learn classifiers. Explores how far handcrafted features can get before CNNs become necessary.',
-    tech: ['Python', 'NumPy', 'Scikit-learn', 'OpenCV', 'Jupyter Notebook'],
     githubUrl: 'https://github.com/Noorumms',
     featured: false,
   },
@@ -160,12 +162,22 @@ export const projects: Project[] = [
     description:
       'Text-based RPG game built in C++ applying core OOP principles. Characters, inventory, combat, and game state are modeled as classes with inheritance and polymorphism. File I/O handles saving and loading progress between sessions.',
     tech: ['C++', 'OOP', 'File I/O'],
-    githubUrl: 'https://github.com/Noorumms',
+    githubUrl: 'https://github.com/Noorumms/RPG-Adventure',
     featured: false,
   },
 ]
 
 export const experiences: Experience[] = [
+  {
+    dateRange: 'Jul 2026 — Present',
+    role: 'Machine Learning Intern',
+    company: 'Ebryx',
+    location: 'Lahore',
+    bullets: [
+      'Working as a Machine Learning Intern, developing practical experience across machine learning workflows and AI-focused engineering while strengthening understanding of model development and real-world ML systems.',
+    ],
+    tech: ['Machine Learning', 'Python', 'AI Systems'],
+  },
   {
     dateRange: '2025 — 2026',
     role: 'Teaching Assistant — Software Engineering & OOP',
@@ -183,23 +195,15 @@ export const experiences: Experience[] = [
 
 export const skillGroups: SkillGroup[] = [
   {
-    label: 'Languages',
-    skills: ['C#', 'Python', 'C++', 'JavaScript', 'Kotlin', 'SQL'],
+    label: 'Engineering',
+    skills: ['C#', 'Python', 'C++', 'JavaScript', 'SQL', 'ASP.NET Core', '.NET MVC', 'REST APIs', 'Clean Architecture'],
   },
   {
-    label: 'Frameworks & Platforms',
-    skills: ['ASP.NET Core', '.NET MVC', 'Blazor', 'REST APIs', 'Clean Architecture'],
-  },
-  {
-    label: 'AI / ML',
+    label: 'Machine Learning',
     skills: ['Scikit-learn', 'NumPy', 'Pandas', 'Matplotlib', 'OpenCV', 'NLTK', 'TF-IDF'],
   },
   {
-    label: 'Mobile',
-    skills: ['Kotlin', 'Jetpack Compose', 'Android Studio', 'Firebase'],
-  },
-  {
-    label: 'Databases',
+    label: 'Data & Databases',
     skills: ['SQL Server', 'MySQL', 'Oracle', 'Firebase Firestore', 'Entity Framework Core'],
   },
   {
@@ -207,12 +211,8 @@ export const skillGroups: SkillGroup[] = [
     skills: ['n8n', 'Git & GitHub', 'Postman', 'Jupyter Notebook', 'VS Code', 'Google Colab'],
   },
   {
-    label: 'Practices',
-    skills: ['OOP', 'MVC', 'SOLID', 'DSA', 'Agile', 'SDLC'],
-  },
-  {
-    label: 'Soft Skills',
-    skills: ['Mentoring', 'Communication', 'Teamwork', 'Problem-solving', 'Adaptability', 'Attention to Detail'],
+    label: 'Concepts',
+    skills: ['OOP', 'MVC', 'SOLID', 'DSA', 'Agile', 'SDLC', 'Mentoring', 'Problem-solving'],
   },
 ]
 

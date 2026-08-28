@@ -17,7 +17,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </div>
 
       <div className="flex items-center gap-2">
-        <h3 className="text-lg font-semibold text-text-primary transition-colors duration-200 group-hover:text-purple">
+        <h3 className="text-lg font-semibold text-text-primary transition-colors duration-200 group-hover:text-green">
           {project.title}
         </h3>
         {project.inProgress && (
@@ -37,16 +37,16 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         ))}
       </ul>
 
-      <div className="mt-4 flex items-center gap-4 text-sm">
+      <div className="mt-4 flex items-center gap-3 flex-wrap">
         {project.githubUrl && (
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-text-secondary hover:text-purple transition-colors duration-200"
+            className="inline-flex items-center gap-1.5 rounded bg-purple px-2.5 py-1 text-xs font-medium text-white transition-colors duration-200 hover:bg-purple-hover"
             aria-label={`View ${project.title} on GitHub`}
           >
-            <GithubIcon size={14} />
+            <GithubIcon size={13} />
             GitHub
           </a>
         )}
@@ -55,21 +55,21 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-text-secondary hover:text-purple transition-colors duration-200"
+            className="inline-flex items-center gap-1.5 rounded bg-purple px-2.5 py-1 text-xs font-medium text-white transition-colors duration-200 hover:bg-purple-hover"
             aria-label={`Live demo of ${project.title}`}
           >
             Live Demo
-            <ArrowUpRight size={14} aria-hidden="true" />
+            <ArrowUpRight size={13} aria-hidden="true" />
           </a>
         ) : project.inProgress ? (
-          <span className="text-text-muted text-xs">Deployment planned — Day 9</span>
+          <span className="text-text-muted text-xs">Deployment planned, Day 9</span>
         ) : null}
         <Link
           href={`/projects/${project.slug}`}
-          className="inline-flex items-center gap-1 text-text-secondary hover:text-purple transition-colors duration-200"
+          className="inline-flex items-center gap-1.5 rounded bg-purple px-2.5 py-1 text-xs font-medium text-white transition-colors duration-200 hover:bg-purple-hover"
         >
           View Details
-          <ArrowUpRight size={14} aria-hidden="true" />
+          <ArrowUpRight size={13} aria-hidden="true" />
         </Link>
       </div>
     </div>

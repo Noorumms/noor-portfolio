@@ -20,7 +20,7 @@ export default function Nav() {
                 aria-current={isActive ? 'true' : undefined}
                 className={`group flex items-center gap-3 border-l-2 py-1 pl-4 text-sm font-medium transition-colors duration-200 ${
                   isActive
-                    ? 'border-purple text-text-primary'
+                    ? 'border-green text-text-primary'
                     : 'border-transparent text-text-secondary hover:text-text-primary'
                 }`}
               >

@@ -1,0 +1,25 @@
+## What It Does
+
+This project classifies handwritten digits from the MNIST dataset without using any neural networks or deep learning. Instead of letting a CNN learn features automatically, I extracted them manually, then trained classical Scikit-learn classifiers on top. The goal was to understand what information you can actually pull out of a raw image before you reach for a black-box model.
+
+## The Feature Extraction Approach
+
+"Handcrafted features" means writing code that looks at each image and produces a fixed-length vector describing it, rather than feeding raw pixels directly into a model.
+
+For each 28x28 grayscale image, I computed features that capture the structure of the digit: pixel intensity statistics per row and per column (so the model can tell that a 1 has pixels concentrated in the middle while an 8 has pixels spread across both halves), local density measures that describe how much ink falls in each quadrant of the image, and edge-based features using gradient filters that highlight the outlines and curves that distinguish digits from each other.
+
+The idea is to give the classifier something informative to work with rather than 784 raw pixel values, which individually are nearly meaningless.
+
+## Why Not Just Use the Raw Pixels
+
+Raw pixel values work poorly for simple classifiers because a slight shift or rotation in the digit changes hundreds of pixel values while the digit itself is unchanged. A handcrafted feature like "total ink in the left half" is stable across small translations. Structural features are also faster to compute and produce a much shorter input vector, which matters for classifiers like SVM that are sensitive to input dimensionality.
+
+## What the Model Can and Cannot Do
+
+The classifiers (tested on Logistic Regression, SVM, and Random Forest) achieved solid accuracy on clean MNIST digits. Where handcrafted features fall short is on digits that look structurally similar, like 3 and 8, or 4 and 9, where a CNN would learn curve-level distinctions that are hard to encode by hand.
+
+This is exactly the point of the project. Understanding where handcrafted features break down is what makes the case for deep learning concrete rather than abstract.
+
+## Lessons
+
+You understand a model's assumptions better when you have to decide what features to give it. The exercise also made it clear why CNNs replaced classical approaches: not because the math is smarter, but because they learn the right features for the task automatically rather than requiring a human to guess them first.

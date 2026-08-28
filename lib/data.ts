@@ -57,7 +57,7 @@ export const metrics: Metric[] = [
   { value: '97%+', label: 'NLP Accuracy' },
   { value: '200+', label: "Students TA'd" },
   { value: '60%', label: 'Time Saved' },
-  { value: '7+', label: 'Projects' },
+  { value: '9+', label: 'Projects' },
 ]
 
 export const projects: Project[] = [
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     category: 'Machine Learning',
     title: 'Car Price Predictor — Regression Pipeline',
     description:
-      'An end-to-end ML regression pipeline predicting used car prices from real Quikr India listings. Covers full data cleaning, EDA with interpretations, and a Scikit-learn Pipeline wrapping OneHotEncoding and Linear Regression together. Benchmarked across 1000 random train/test splits to find the most stable model. Deployed as a live Streamlit web app.',
+      'End-to-end ML regression pipeline predicting used car prices from 10,000+ real Quikr India listings. Includes full data cleaning (outliers above 60 lac removed), EDA, and a Scikit-learn Pipeline wrapping OneHotEncoding and Linear Regression. Benchmarked across 1000 random train/test splits. Deployed as a live Streamlit web app.',
     tech: ['Python', 'Pandas', 'Scikit-learn', 'Linear Regression', 'Streamlit'],
     githubUrl: 'https://github.com/Noorumms/car-price-predictor',
     liveUrl: 'https://preloved-wheels.streamlit.app',
@@ -141,6 +141,28 @@ export const projects: Project[] = [
     githubUrl: 'https://github.com/Noorumms/ml-from-scratch',
     featured: false,
   },
+  {
+    slug: 'mnist-classifier',
+    year: '2024',
+    category: 'Machine Learning · Computer Vision',
+    title: 'MNIST Digit Classification',
+    description:
+      'Digit classifier trained on MNIST without deep learning. Features extracted manually using pixel statistics and structural patterns, then fed into Scikit-learn classifiers. Explores how far handcrafted features can get before CNNs become necessary.',
+    tech: ['Python', 'NumPy', 'Scikit-learn', 'OpenCV', 'Jupyter Notebook'],
+    githubUrl: 'https://github.com/Noorumms',
+    featured: false,
+  },
+  {
+    slug: 'rpg-adventure',
+    year: '2023',
+    category: 'C++ · OOP',
+    title: 'RPG Adventure',
+    description:
+      'Text-based RPG game built in C++ applying core OOP principles. Characters, inventory, combat, and game state are modeled as classes with inheritance and polymorphism. File I/O handles saving and loading progress between sessions.',
+    tech: ['C++', 'OOP', 'File I/O'],
+    githubUrl: 'https://github.com/Noorumms',
+    featured: false,
+  },
 ]
 
 export const experiences: Experience[] = [
@@ -187,6 +209,10 @@ export const skillGroups: SkillGroup[] = [
   {
     label: 'Practices',
     skills: ['OOP', 'MVC', 'SOLID', 'DSA', 'Agile', 'SDLC'],
+  },
+  {
+    label: 'Soft Skills',
+    skills: ['Mentoring', 'Communication', 'Teamwork', 'Problem-solving', 'Adaptability', 'Attention to Detail'],
   },
 ]
 

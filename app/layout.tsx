@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: '%s | Noor Fatima',
   },
   description:
-    'BS Software Engineering student at PUCIT Lahore (Class of 2027). Building AI-powered systems end to end — ML pipelines, ASP.NET Core backends, Computer Vision. Open to internships from July 2026.',
+    'BS Software Engineering student at PUCIT Lahore (Class of 2027). Building AI-powered systems end to end: ML pipelines, ASP.NET Core backends, Computer Vision. Open to internships from July 2026.',
   keywords: [
     'Noor Fatima',
     'software engineer Pakistan',
@@ -40,14 +40,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: personalInfo.siteUrl,
     title: 'Noor Fatima — Software Engineer',
-    description: 'Full-Stack, ML & .NET engineer. Final year at PUCIT Lahore.',
+    description: 'Full-Stack, ML & .NET engineer. Third year at PUCIT Lahore.',
     siteName: 'Noor Fatima',
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Noor Fatima — Software Engineer',
-    description: 'Full-Stack, ML & .NET engineer. Final year at PUCIT Lahore.',
+    description: 'Full-Stack, ML & .NET engineer. Third year at PUCIT Lahore.',
     images: ['/og-image.png'],
   },
   robots: {

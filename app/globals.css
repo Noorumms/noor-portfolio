@@ -6,24 +6,24 @@
   --c-navy: #f8f9fa;
   --c-surface: #ffffff;
   --c-border: #d8dce1;
-  --c-purple: #7c5cbf;
-  --c-purple-hover: #6a4aa8;
+  --c-purple: #3533CD;
+  --c-purple-hover: #2927b8;
   --c-text-primary: #1c1c1e;
   --c-text-secondary: #4b5258;
   --c-text-muted: #6e7681;
-  --c-green: #2f9e44;
+  --c-green: #6b8f00;
 }
 
 .dark {
   --c-navy: #0d1117;
   --c-surface: #161b22;
   --c-border: #30363d;
-  --c-purple: #7c5cbf;
-  --c-purple-hover: #9b7fd4;
+  --c-purple: #3533CD;
+  --c-purple-hover: #4543E8;
   --c-text-primary: #e6edf3;
   --c-text-secondary: #8b949e;
   --c-text-muted: #6e7681;
-  --c-green: #3fb950;
+  --c-green: #C4F516;
 }
 
 @theme inline {
@@ -59,7 +59,7 @@ body {
 a:focus-visible,
 button:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--color-purple);
+  outline: 2px solid var(--color-green);
   border-radius: 2px;
 }
 

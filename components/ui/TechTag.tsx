@@ -8,7 +8,7 @@ export default function TechTag({ children, size = 'sm' }: TechTagProps) {
 
   return (
     <span
-      className={`font-mono border border-border bg-navy text-text-secondary rounded ${sizeClasses}`}
+      className={`font-mono bg-purple text-white border-transparent rounded ${sizeClasses}`}
     >
       {children}
     </span>

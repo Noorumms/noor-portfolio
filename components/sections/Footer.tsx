@@ -9,10 +9,10 @@ export default function Footer() {
       </h2>
       <p className="mt-4 max-w-md text-sm leading-relaxed text-text-secondary">
         I&apos;m available for Software Engineering, Full-Stack, or ML internship opportunities
-        starting July 2026 — remote or Lahore-based. Reach out directly at{' '}
+        starting July 2026, remote or Lahore-based. Reach out directly at{' '}
         <a
           href="mailto:noorefatimah0@gmail.com"
-          className="text-purple hover:text-purple-hover transition-colors duration-200"
+          className="text-green hover:text-green transition-colors duration-200"
         >
           noorefatimah0@gmail.com
         </a>
@@ -20,7 +20,7 @@ export default function Footer() {
 
       <a
         href={`mailto:${personalInfo.email}`}
-        className="mt-6 inline-block font-mono text-lg text-purple transition-colors duration-200 hover:text-purple-hover"
+        className="mt-6 inline-block font-mono text-lg text-green transition-colors duration-200 hover:opacity-80"
       >
         {personalInfo.email}
       </a>
@@ -30,7 +30,7 @@ export default function Footer() {
           href={personalInfo.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors duration-200 hover:text-purple"
+          className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors duration-200 hover:text-green"
         >
           <LinkedinIcon size={16} />
           LinkedIn
@@ -39,7 +39,7 @@ export default function Footer() {
           href={personalInfo.github}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors duration-200 hover:text-purple"
+          className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors duration-200 hover:text-green"
         >
           <GithubIcon size={16} />
           GitHub

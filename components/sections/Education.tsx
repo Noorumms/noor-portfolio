@@ -13,7 +13,7 @@ export default function Education() {
 
         <div>
           <h3 className="font-semibold text-text-primary">{education.degree}</h3>
-          <p className="text-purple text-sm">{education.institution}</p>
+          <p className="text-green text-sm">{education.institution}</p>
           <p className="mt-1 text-sm text-text-secondary">CGPA: {education.cgpa}</p>
 
           <h4 className="mt-4 text-text-muted text-xs uppercase tracking-wider">
@@ -31,7 +31,7 @@ export default function Education() {
           <ul className="mt-2 space-y-2">
             {achievements.map((achievement) => (
               <li key={achievement.text} className="text-sm leading-relaxed text-text-secondary pl-4 relative">
-                <span className="absolute left-0 text-purple">▸</span>
+                <span className="absolute left-0 text-green">▸</span>
                 {achievement.text}
               </li>
             ))}

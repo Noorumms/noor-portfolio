@@ -1,0 +1,19 @@
+## What It Is
+
+A text-based RPG game written in C++, built as a practical application of OOP principles. The player navigates rooms, manages inventory, fights enemies, and tracks health and experience points across multiple game states. Progress is saved to disk and reloaded on startup.
+
+## How It Is Structured
+
+Every concept in the game maps to a class. A base `Character` class holds the properties and behaviors common to all characters: name, health, attack power, and the ability to take damage. `Player` and `Enemy` both inherit from `Character` and add their own behavior through polymorphism. An `Inventory` class manages item storage. A `GameWorld` class owns the rooms and handles transitions between them.
+
+This structure means the combat logic only knows it is dealing with a `Character`, not whether it is a player or an enemy specifically. Adding a new enemy type means creating a new subclass, not touching the combat code.
+
+## File I/O for Save States
+
+When the player quits, the game writes the current player state to a file: health, level, inventory contents, and current room. On next launch, it reads that file back and restores the session. This required designing the serialization format carefully so every piece of state could round-trip correctly.
+
+The main challenge was handling cases where the save file was corrupted or missing. Rather than crashing, the game falls back to a fresh start.
+
+## What This Project Was For
+
+This was built during the first year of the degree as a hands-on way to apply OOP theory: inheritance, polymorphism, encapsulation, and file handling. The goal was to build something that actually ran and did something visible rather than writing isolated class definitions.

@@ -45,6 +45,17 @@ const mdxComponents = {
   strong: (props: React.ComponentProps<'strong'>) => (
     <strong className="font-semibold text-text-primary" {...props} />
   ),
+  table: (props: React.ComponentProps<'table'>) => (
+    <div className="overflow-x-auto mb-4">
+      <table className="w-full text-sm text-text-secondary border-collapse" {...props} />
+    </div>
+  ),
+  th: (props: React.ComponentProps<'th'>) => (
+    <th className="border border-border px-4 py-2 text-left text-xs font-semibold uppercase tracking-wider text-text-muted" {...props} />
+  ),
+  td: (props: React.ComponentProps<'td'>) => (
+    <td className="border border-border px-4 py-2" {...props} />
+  ),
 }
 
 export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -59,7 +70,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
     <div className="mx-auto max-w-[760px] px-6 py-12 lg:py-20">
       <Link
         href="/#projects"
-        className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors duration-200 hover:text-purple"
+        className="inline-flex items-center gap-2 text-sm text-text-secondary transition-colors duration-200 hover:text-green"
       >
         <ArrowLeft size={16} aria-hidden="true" />
         Back to all projects
@@ -72,13 +83,13 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {project.title}
       </h1>
 
-      <div className="mt-4 flex flex-wrap items-center gap-4">
+      <div className="mt-4 flex flex-wrap items-center gap-3">
         {project.githubUrl && (
           <a
             href={project.githubUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-text-secondary transition-colors duration-200 hover:text-purple"
+            className="inline-flex items-center gap-1.5 rounded bg-purple px-3 py-1.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-purple-hover"
           >
             <GithubIcon size={16} />
             GitHub
@@ -90,7 +101,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             href={project.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm text-text-secondary transition-colors duration-200 hover:text-purple"
+            className="inline-flex items-center gap-1.5 rounded bg-purple px-3 py-1.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-purple-hover"
           >
             Live Demo
             <ArrowUpRight size={12} aria-hidden="true" />
@@ -118,7 +129,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {prev ? (
           <Link
             href={`/projects/${prev.slug}`}
-            className="text-text-secondary transition-colors duration-200 hover:text-purple"
+            className="text-text-secondary transition-colors duration-200 hover:text-green"
           >
             ← {prev.title}
           </Link>
@@ -128,7 +139,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         {next ? (
           <Link
             href={`/projects/${next.slug}`}
-            className="text-text-secondary transition-colors duration-200 hover:text-purple"
+            className="text-text-secondary transition-colors duration-200 hover:text-green"
           >
             {next.title} →
           </Link>

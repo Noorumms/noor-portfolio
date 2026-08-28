@@ -11,17 +11,17 @@ export default function About() {
       <div className="space-y-5 text-base leading-relaxed text-text-secondary">
         <p>
           I&apos;m a third-year Software Engineering student at PUCIT Lahore building AI-powered
-          systems end to end — from the model to the product.
+          systems end to end, from the model to the product.
         </p>
         <p>
-          I write code that does something — a gallery app where every layer has a defined
+          I write code that does something: a gallery app where every layer has a defined
           responsibility, an NLP classifier that outperforms baselines by iterating on
           evaluation metrics, automation workflows that reclaim 60% of manual scheduling time.
         </p>
         <p>
           I&apos;m finishing my BS in Software Engineering at PUCIT Lahore (CGPA 3.5), where I
           also TA for OOP and Software Engineering courses for 200+ students per semester.
-          Teaching forces clarity — you can&apos;t explain SOLID principles to a room of 200
+          Teaching forces clarity. You can&apos;t explain SOLID principles to a room of 200
           without genuinely understanding them yourself.
         </p>
         <p>

@@ -3,13 +3,13 @@ import { GithubIcon, LinkedinIcon } from '@/components/ui/icons'
 
 export default function Footer() {
   return (
-    <footer className="py-16 lg:py-24 border-t border-border">
+    <footer id="contact" className="py-16 lg:py-24 border-t border-border">
       <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-text-primary">
-        Let&apos;s work together.
+        Let&apos;s build something useful.
       </h2>
       <p className="mt-4 max-w-md text-sm leading-relaxed text-text-secondary">
-        I&apos;m available for Software Engineering, Full-Stack, or ML internship opportunities
-        starting July 2026, remote or Lahore-based. Reach out directly at{' '}
+        Open to software engineering, full-stack, and ML opportunities — remote or Lahore-based.
+        Reach out directly at{' '}
         <a
           href="mailto:noorefatimah0@gmail.com"
           className="text-green hover:text-green transition-colors duration-200"
@@ -47,7 +47,7 @@ export default function Footer() {
       </div>
 
       <p className="mt-12 text-xs text-text-muted">
-        Noor Fatima © 2026
+        Noor Fatima © 2026 — now go build something.
       </p>
     </footer>
   )
